@@ -1,14 +1,20 @@
 import './App.css';
 import ReactPaginate from 'react-paginate';
+import { useState } from 'react';
 
 function App() {
-  
+
+  const [page, setPage] = useState(1);
+
   const handlePageClick = (data) => {
-    console.log(data.selected);
+    console.log(data.selected + 1);
+    setPage(data.selected + 1);
   }
 
   return (
-    <div>
+    <div className='App'>
+
+      <h1>Current page is {page} </h1>
 
       {/* all classnames used from bootstrap pagination */}
       <ReactPaginate
